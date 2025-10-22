@@ -1,0 +1,32 @@
+import os
+import time
+
+board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+player = 1
+
+Win = 1
+Draw = -1
+Running = 0
+Stop = 1
+
+Game = Running
+Mark = 'X'
+
+def DrawBoard():
+    print("\t{} | {} | {} ".format(board[1], board[2], board[3]))
+    print("\t---------")
+    print("\t{} | {} | {} ".format(board[4], board[5], board[6]))
+    print("\t---------")
+    print("\t{} | {} | {} ".format(board[7], board[8], board[9]))
+
+def CheckPosition(x):
+    return board[x] == ' '
+
+def CheckWin():
+    global Game
+    if (board[1] == board[2] == board[3] != ' ' or
+        board[4] == board[5] == board[6] != ' ' or
+        board[7] == board[8] == board[9] != ' '):
+        Game = Win
+    elif (board[1] == board[4] == board[7] != ' ' or
+          board[2] == board[5] == board[8]
