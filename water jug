@@ -1,0 +1,23 @@
+def water(jug1, jug2):
+    cap_jug1, cap_jug2, max_fill = 3, 4, 3
+
+    print("\t%d\t\t|\t\t%d" % (jug1, jug2))
+
+    if jug2 == max_fill:
+        return
+    elif jug2 == cap_jug2:
+        water(0, jug1)
+    elif jug1 != 0 and jug2 == 0:
+        water(0, jug1)
+    elif jug1 == max_fill:
+        water(jug1, 0)
+    elif jug1 < cap_jug1:
+        water(cap_jug1, jug2)
+    elif jug1 < cap_jug2 - jug2:
+        water(0, (jug1 + jug2))
+    else:
+        water(jug1 - (cap_jug2 - jug2), (cap_jug2 - jug2) + jug2)
+
+
+print("Water in jug1\t|\tWater in jug2")
+water(0, 0)
